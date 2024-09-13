@@ -1,5 +1,3 @@
-@media (max-width: 500px) {
-}
 @media (max-width: 1024px) {
 }
 
@@ -35,7 +33,7 @@ input[type='radio'] {
   grid-template-rows: 4fr 5rem;
   gap: 1.25rem;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 500px) {
     grid-template-columns: 1fr;
     grid-template-rows: 4fr 3rem 1fr;
     gap: 0.75rem;
@@ -53,7 +51,7 @@ input[type='radio'] {
   padding: 1rem;
   overflow: hidden;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 500px) {
     width: 90vw;
   }
 }
@@ -71,7 +69,7 @@ input[type='radio'] {
   align-items: stretch;
   justify-content: center;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 500px) {
     grid-row: 2;
   }
 }
@@ -121,7 +119,7 @@ input[type='radio'] {
     'image image'
     'summary  ..';
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 500px) {
     grid-template-areas:
       'image'
       '..'
@@ -148,7 +146,7 @@ input[type='radio'] {
   margin: 0;
   font-weight: normal;
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 500px) {
     align-content: normal;
   }
 }
