@@ -1,0 +1,190 @@
+@media (max-width: 1024px) {
+}
+
+:root {
+  --color-blue: #71abfe;
+  --color-gray: #25282a;
+  --color-gray-s: #bcbdbe;
+  --color-white: #ffffff;
+  --timing: 0.3s;
+  --control-width: 2rem;
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.body {
+  color: var(--color-white);
+}
+
+.bgc--gray {
+  background-color: var(--color-gray);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 3fr calc(var(--control-width) * 4);
+  grid-template-rows: 4fr 5rem;
+  gap: 1.25rem;
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 3rem 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.grid--fully-filled {
+  grid-area: 1 / 1 / -1 / -1;
+}
+
+.slider {
+  width: 80vw;
+  max-width: 40rem;
+  margin: auto;
+  padding: 1rem;
+  overflow: hidden;
+
+  @media screen and (max-width: 500px) {
+    width: 90vw;
+  }
+}
+
+.slider__body {
+  display: grid;
+  overflow: hidden;
+}
+
+.slider__controls {
+  display: flex;
+  z-index: 200;
+  grid-column: -2;
+  grid-row: -2;
+  align-items: stretch;
+  justify-content: center;
+
+  @media screen and (max-width: 500px) {
+    grid-row: 2;
+  }
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-width);
+  cursor: pointer;
+
+  .dot {
+    width: calc(var(--control-width) / 2);
+    height: calc(var(--control-width) / 2);
+    border: 0.2rem solid var(--color-blue);
+    border-radius: 100%;
+    background-color: var(--color-blue);
+    transition: all var(--timing) ease-in-out;
+  }
+
+  &:hover {
+    .dot {
+      border-color: var(--color-white);
+      background-color: var(--color-white);
+    }
+  }
+
+  &:active {
+    .dot {
+      border-color: var(--color-gray-s);
+      background-color: var(--color-gray-s);
+    }
+  }
+}
+
+#meme-1:checked ~ .slider__controls .control:nth-of-type(1),
+#meme-2:checked ~ .slider__controls .control:nth-of-type(2),
+#meme-3:checked ~ .slider__controls .control:nth-of-type(3),
+#meme-4:checked ~ .slider__controls .control:nth-of-type(4) {
+  .dot {
+    background-color: var(--color-gray);
+  }
+}
+
+.meme {
+  grid-template-areas:
+    'image image'
+    'summary  ..';
+
+  @media screen and (max-width: 500px) {
+    grid-template-areas:
+      'image'
+      '..'
+      'summary';
+  }
+}
+
+.meme:nth-of-type(1) .meme__image {
+  background-image: url(./assets/images/differences-between-programming-languages.jpg);
+}
+.meme:nth-of-type(2) .meme__image {
+  background-image: url(./assets/images/junior-workflow-be-like.jpg);
+}
+.meme:nth-of-type(3) .meme__image {
+  background-image: url(./assets/images/we-are-a-community.jpg);
+}
+.meme:nth-of-type(4) .meme__image {
+  background-image: url(./assets/images/little-bit-about-interview.png);
+}
+
+.meme__summary {
+  grid-area: summary;
+  align-content: center;
+  margin: 0;
+  font-weight: normal;
+
+  @media screen and (max-width: 500px) {
+    align-content: normal;
+  }
+}
+
+.meme__image {
+  display: flex;
+  grid-area: image;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1em;
+  background-blend-mode: color;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image {
+  width: 100%;
+}
+
+.meme:nth-of-type(1),
+.meme:nth-of-type(2),
+.meme:nth-of-type(3),
+.meme:nth-of-type(4) {
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: all 0s var(--timing) ease-in-out;
+}
+
+#meme-1:checked ~ .slider__body .meme:nth-of-type(1),
+#meme-2:checked ~ .slider__body .meme:nth-of-type(2),
+#meme-3:checked ~ .slider__body .meme:nth-of-type(3),
+#meme-4:checked ~ .slider__body .meme:nth-of-type(4) {
+  visibility: visible;
+  z-index: 100;
+  transform: translateX(0);
+  transition: transform var(--timing) ease-in-out;
+}
