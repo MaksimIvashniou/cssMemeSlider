@@ -46,8 +46,8 @@ input[type='radio'] {
 }
 
 .slider {
-  width: 60vw;
-  max-width: 50rem;
+  width: 80vw;
+  max-width: 40rem;
   margin: auto;
   padding: 1rem;
   overflow: hidden;
