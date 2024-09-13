@@ -45,3 +45,33 @@ input[type='radio'] {
 .grid--fully-filled {
   grid-area: 1 / 1 / -1 / -1;
 }
+
+.slider {
+  width: 60vw;
+  max-width: 50rem;
+  margin: auto;
+  padding: 1rem;
+  overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    width: 90vw;
+  }
+}
+
+.slider__body {
+  display: grid;
+  overflow: hidden;
+}
+
+.slider__controls {
+  display: flex;
+  z-index: 200;
+  grid-column: -2;
+  grid-row: -2;
+  align-items: stretch;
+  justify-content: center;
+
+  @media screen and (max-width: 800px) {
+    grid-row: 2;
+  }
+}
