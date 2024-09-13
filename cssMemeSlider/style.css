@@ -7,6 +7,7 @@
   --color-gray-s: #bcbdbe;
   --color-white: #ffffff;
   --timing: 0.3s;
+  --control-width: 2rem;
 
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -29,7 +30,7 @@ input[type='radio'] {
 
 .grid {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr calc(var(--control-width) * 4);
   grid-template-rows: 4fr 5rem;
   gap: 1.25rem;
 
@@ -78,12 +79,12 @@ input[type='radio'] {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
+  width: var(--control-width);
   cursor: pointer;
 
   .dot {
-    width: 1rem;
-    height: 1rem;
+    width: calc(var(--control-width) / 2);
+    height: calc(var(--control-width) / 2);
     border: 0.2rem solid var(--color-blue);
     border-radius: 100%;
     background-color: var(--color-blue);
