@@ -2,3 +2,46 @@
 }
 @media (max-width: 1024px) {
 }
+
+:root {
+  --color-blue: #71abfe;
+  --color-gray: #25282a;
+  --color-gray-s: #bcbdbe;
+  --color-white: #ffffff;
+  --timing: 0.3s;
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.body {
+  color: var(--color-white);
+}
+
+.bgc--gray {
+  background-color: var(--color-gray);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 4fr 5rem;
+  gap: 1.25rem;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 3rem 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.grid--fully-filled {
+  grid-area: 1 / 1 / -1 / -1;
+}
