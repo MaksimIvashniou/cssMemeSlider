@@ -115,3 +115,58 @@ input[type='radio'] {
     background-color: var(--color-gray);
   }
 }
+
+.meme {
+  grid-template-areas:
+    'image image'
+    'summary  ..';
+
+  @media screen and (max-width: 800px) {
+    grid-template-areas:
+      'image'
+      '..'
+      'summary';
+  }
+}
+
+.meme:nth-of-type(1) .meme__image {
+  background-image: url(./assets/images/differences-between-programming-languages.jpg);
+}
+.meme:nth-of-type(2) .meme__image {
+  background-image: url(./assets/images/junior-workflow-be-like.jpg);
+}
+.meme:nth-of-type(3) .meme__image {
+  background-image: url(./assets/images/we-are-a-community.jpg);
+}
+.meme:nth-of-type(4) .meme__image {
+  background-image: url(./assets/images/little-bit-about-interview.png);
+}
+
+.meme__summary {
+  grid-area: summary;
+  align-content: center;
+  margin: 0;
+  font-weight: normal;
+
+  @media screen and (max-width: 800px) {
+    align-content: normal;
+  }
+}
+
+.meme__image {
+  display: flex;
+  grid-area: image;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1em;
+  background-blend-mode: color;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image {
+  width: 100%;
+}
