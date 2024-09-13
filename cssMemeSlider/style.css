@@ -170,3 +170,22 @@ input[type='radio'] {
 .image {
   width: 100%;
 }
+
+.meme:nth-of-type(1),
+.meme:nth-of-type(2),
+.meme:nth-of-type(3),
+.meme:nth-of-type(4) {
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: all 0s var(--timing) ease-in-out;
+}
+
+#meme-1:checked ~ .slider__body .meme:nth-of-type(1),
+#meme-2:checked ~ .slider__body .meme:nth-of-type(2),
+#meme-3:checked ~ .slider__body .meme:nth-of-type(3),
+#meme-4:checked ~ .slider__body .meme:nth-of-type(4) {
+  visibility: visible;
+  z-index: 100;
+  transform: translateX(0);
+  transition: transform var(--timing) ease-in-out;
+}
