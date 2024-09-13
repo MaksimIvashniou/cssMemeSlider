@@ -75,3 +75,43 @@ input[type='radio'] {
     grid-row: 2;
   }
 }
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  cursor: pointer;
+
+  .dot {
+    width: 1rem;
+    height: 1rem;
+    border: 0.2rem solid var(--color-blue);
+    border-radius: 100%;
+    background-color: var(--color-blue);
+    transition: all var(--timing) ease-in-out;
+  }
+
+  &:hover {
+    .dot {
+      border-color: var(--color-white);
+      background-color: var(--color-white);
+    }
+  }
+
+  &:active {
+    .dot {
+      border-color: var(--color-gray-s);
+      background-color: var(--color-gray-s);
+    }
+  }
+}
+
+#meme-1:checked ~ .slider__controls .control:nth-of-type(1),
+#meme-2:checked ~ .slider__controls .control:nth-of-type(2),
+#meme-3:checked ~ .slider__controls .control:nth-of-type(3),
+#meme-4:checked ~ .slider__controls .control:nth-of-type(4) {
+  .dot {
+    background-color: var(--color-gray);
+  }
+}
